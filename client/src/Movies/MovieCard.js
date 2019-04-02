@@ -5,12 +5,11 @@ import styled from 'styled-components';
 // // Styled Components
 
 const StyledMovieCard = styled.div`
-  background-color: #fff;
+  background: #D5D5D5;
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  cursor: pointer;
   position: relative;
   margin: 1rem auto;
 `

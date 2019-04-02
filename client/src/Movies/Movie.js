@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 const SaveWrapper = styled.div`
   position: relative;
-  width: 75%;
+  width: 100%;
   margin: 1rem auto;
 `
 
@@ -17,13 +17,14 @@ const SaveButton = styled.div`
   position: absolute;
   top: 25px;
   right: 25px;
-  border: 1px solid grey;
+  border-radius: 5px;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background: #6699CC;
+  cursor: pointer;
 
   &:hover {
-    background-color: green;
-    olor: white;
+    background: #9099A2;
+    transition: all 200ms ease;
   }
 `
 
