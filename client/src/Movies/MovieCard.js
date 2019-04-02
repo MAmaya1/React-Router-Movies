@@ -1,12 +1,34 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
+// // Styled Components
+
+const StyledMovieCard = styled.div`
+  background-color: #fff;
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  margin: 1rem auto;
+`
+
+const MovieDirector = styled.div`
+  padding: 4px 0;
+  font-size: 0.8rem;
+`
+
+// Movie Card Component
+
 const MovieCard = props => {
   return(
-    <div className="movie-card">
+    <StyledMovieCard>
       <h2>{props.title}</h2>
-      <div className="movie-director">
+      <MovieDirector>
         Director: <em>{props.director}</em>
-      </div>
+      </MovieDirector>
       <div className="movie-metascore">
         Metascore: <strong>{props.metascore}</strong>
       </div>
@@ -17,7 +39,7 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
-    </div>
+    </StyledMovieCard>
   );
 };
 

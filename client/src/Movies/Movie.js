@@ -3,6 +3,32 @@ import axios from 'axios';
 
 import MovieCard from './MovieCard';
 
+import styled from 'styled-components';
+
+// Styled Components
+
+const SaveWrapper = styled.div`
+  position: relative;
+  width: 75%;
+  margin: 1rem auto;
+`
+
+const SaveButton = styled.div`
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+
+  &:hover {
+    background-color: green;
+    olor: white;
+  }
+`
+
+// Movie Component Constructor
+
 export default class Movie extends Component {
   constructor(props) {
     super(props);
@@ -48,18 +74,17 @@ export default class Movie extends Component {
 
     const { title, director, metascore, stars } = this.state.movie;
     return (
-      <div className="save-wrapper">
+      <SaveWrapper>
         <MovieCard
           title={title}
           director={director}
           metascore={metascore}
           stars={stars}
         />
-        <div
-          className="save-button"
+        <SaveButton
           onClick={this.saveMovie}
-        >Save</div>
-      </div>
+        >Save</SaveButton>
+      </SaveWrapper>
     );
   }
 }
