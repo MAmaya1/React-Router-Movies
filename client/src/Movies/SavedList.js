@@ -4,6 +4,8 @@ import { Link, NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import PropTypes from 'prop-types';
+
 // Styled Components
 
 const StyledSavedList = styled.div`
@@ -68,4 +70,15 @@ export default function SavedList(props) {
       <Link to="/"><HomeButton className="home-button">Home</HomeButton></Link>
     </StyledSavedList>
   );
+}
+
+// Prop Types
+
+SavedList.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string
+    })
+  )
 }

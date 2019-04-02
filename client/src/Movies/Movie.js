@@ -5,6 +5,8 @@ import MovieCard from './MovieCard';
 
 import styled from 'styled-components';
 
+import PropTypes from 'prop-types';
+
 // Styled Components
 
 const SaveWrapper = styled.div`
@@ -21,6 +23,7 @@ const SaveButton = styled.div`
   padding: 5px 10px;
   background: #6699CC;
   cursor: pointer;
+  color: white;
 
   &:hover {
     background: #9099A2;
@@ -88,4 +91,10 @@ export default class Movie extends Component {
       </SaveWrapper>
     );
   }
+}
+
+// Prop Types
+
+Movie.propTypes = {
+  addToSavedList: PropTypes.func
 }

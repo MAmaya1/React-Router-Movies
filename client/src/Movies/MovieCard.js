@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import PropTypes from 'prop-types';
+
 // // Styled Components
 
 const StyledMovieCard = styled.div`
@@ -43,3 +45,14 @@ const MovieCard = props => {
 };
 
 export default MovieCard;
+
+// Prop Types
+
+MovieCard.propTypes = {
+  title: PropTypes.string,
+  director: PropTypes.string,
+  metascore: PropTypes.number,
+  stars: PropTypes.arrayOf(
+    PropTypes.string
+  )
+}
