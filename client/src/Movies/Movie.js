@@ -3,6 +3,36 @@ import axios from 'axios';
 
 import MovieCard from './MovieCard';
 
+import styled from 'styled-components';
+
+import PropTypes from 'prop-types';
+
+// Styled Components
+
+const SaveWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  margin: 1rem auto;
+`
+
+const SaveButton = styled.div`
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background: #6699CC;
+  cursor: pointer;
+  color: white;
+
+  &:hover {
+    background: #9099A2;
+    transition: all 200ms ease;
+  }
+`
+
+// Movie Component Constructor
+
 export default class Movie extends Component {
   constructor(props) {
     super(props);
@@ -27,17 +57,19 @@ export default class Movie extends Component {
         console.error(error);
       });
   };
+  
   // Uncomment this code when you're ready for the stretch problems
-  // componentWillReceiveProps(newProps){
-  //   if(this.props.match.params.id !== newProps.match.params.id){
-  //     this.fetchMovie(newProps.match.params.id);
-  //   }
-  // }
 
-  // saveMovie = () => {
-  //   const addToSavedList = this.props.addToSavedList;
-  //   addToSavedList(this.state.movie)
-  // }
+  componentWillReceiveProps(newProps){
+    if(this.props.match.params.id !== newProps.match.params.id){
+      this.fetchMovie(newProps.match.params.id);
+    }
+  }
+
+  saveMovie = () => {
+    const addToSavedList = this.props.addToSavedList;
+    addToSavedList(this.state.movie)
+  }
 
   render() {
     if (!this.state.movie) {
@@ -46,15 +78,23 @@ export default class Movie extends Component {
 
     const { title, director, metascore, stars } = this.state.movie;
     return (
-      <div className="save-wrapper">
+      <SaveWrapper>
         <MovieCard
           title={title}
           director={director}
           metascore={metascore}
           stars={stars}
         />
-        <div className="save-button">Save</div>
-      </div>
+        <SaveButton
+          onClick={this.saveMovie}
+        >Save</SaveButton>
+      </SaveWrapper>
     );
   }
+}
+
+// Prop Types
+
+Movie.propTypes = {
+  addToSavedList: PropTypes.func
 }
